@@ -25,7 +25,7 @@ our $mod = {
     module=>'PDL::Graphics::Simple::PLplot',
     engine => 'PDL::Graphics::PLplot',
     synopsis=> 'PLplot (nice plotting, sloooow images)',
-    pgs_version=> '1.002'
+    pgs_version=> '1.004'
 };
 PDL::Graphics::Simple::register( 'PDL::Graphics::Simple::PLplot' );
 
@@ -276,7 +276,7 @@ our $plplot_methods = {
     'points' => 'POINTS',
     'errorbars' => sub {
 	my ($me, $ipo, $data, $ppo) = @_;
-	$me->{obj}->xyplot($data->[0], $data->[1], %{$ppo}, YERRORBAR=>$data->[2]);
+	$me->{obj}->xyplot($data->[0], $data->[1], %{$ppo}, YERRORBAR=>$data->[2]*2);
     },
     'limitbars'=> sub {
 	my ($me, $ipo, $data, $ppo) = @_;

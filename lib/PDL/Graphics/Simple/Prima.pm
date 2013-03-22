@@ -28,7 +28,7 @@ our $mod = {
     module => 'PDL::Graphics::Simple::Prima',
     engine => 'PDL::Graphics::Prima',
     synopsis => 'Prima (interactive, fast, PDL-specific)',
-    pgs_version => '1.002'
+    pgs_version => '1.004'
 };
 PDL::Graphics::Simple::register('PDL::Graphics::Simple::Prima');
 
@@ -399,7 +399,7 @@ $types->{errorbars} = sub {
     # Strategy: make T-errorbars out of the x/y/height data and generate a Line
     # plot.  The T-errorbar width is 4x the LineWidth (+/- 2x).
     my($me, $plot, $block, $cprops, $co) = @_;
-    my $halfwidth = $block->[2]->flat/2;
+    my $halfwidth = $block->[2]->flat;
     $block->[2] = $block->[1] - $halfwidth;
     $block->[3] = $block->[1] + $halfwidth;
     &{$types->{limitbars}}($me, $plot, $block, $cprops, $co);
